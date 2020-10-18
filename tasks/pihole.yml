@@ -1,0 +1,29 @@
+---
+- name: Create PiHole Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ pihole_config_directory }}"
+
+- name: PiHole Docker Container
+  docker_container:
+    name: pihole
+    image: pihole/pihole
+    pull: true
+    volumes:
+      - "{{ pihole_config_directory }}:/pihole"
+    network_mode: bridge
+    ports:
+      - "{{ pihole_webui_port }}:80"
+    env:
+      TZ: "{{ ansible_nas_timezone }}"
+      DNS1: "{{ pihole_dns1 }}"
+      DNS2: "{{ pihole_dns2 }}"
+      WEBPASSWORD: "{{ pihole_webpassword }}"
+    restart_policy: unless-stopped
+    labels:
+      traefik.backend: "pihole"
+      traefik.frontend.rule: "Host:pihole.{{ ansible_nas_domain }}"
+      traefik.enable: "{{ pihole_available_externally }}"
+      traefik.port: "11080"
