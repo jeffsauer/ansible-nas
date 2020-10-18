@@ -16,6 +16,10 @@
     network_mode: bridge
     ports:
       - "{{ pihole_webui_port }}:80"
+#      - "53:53/tcp"
+#      - "53:53/udp"
+#      - "67:67/udp"
+
     env:
       TZ: "{{ ansible_nas_timezone }}"
       DNS1: "{{ pihole_dns1 }}"
