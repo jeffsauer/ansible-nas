@@ -1,0 +1,28 @@
+---
+- name: Create ResilioSync Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ resiliosync_config_directory }}"
+
+- name: Homebridge Docker Container
+  docker_container:
+    name: resiliosync
+    image: resilio/sync
+    pull: true
+    volumes:
+      - "{{ resiliosync_config_directory }}:/resiliosync"
+    network_mode: host
+    env:
+      TZ: "{{ ansible_nas_timezone }}"
+      WEBUI_PORT: "{{ resiliosync_webui_port }}"
+      DATA_FOLDER: "{{ resiliosync_folder }}"
+      PGID: "{{ resiliosync_group_id }}"
+      PUID: "{{ resiliosync_user_id }}"
+    restart_policy: unless-stopped
+    labels:
+      traefik.backend: "resiliosync"
+      traefik.frontend.rule: "Host:resiliosync.{{ ansible_nas_domain }}"
+      traefik.enable: "{{ resiliosync_available_externally }}"
+      traefik.port: "8888"
