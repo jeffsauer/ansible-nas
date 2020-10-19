@@ -16,7 +16,7 @@
     network_mode: host
     env:
       TZ: "{{ ansible_nas_timezone }}"
-      WEBUI_PORT: "{{ resiliosync_webui_port }}"
+      WEBUI_PORT: "{{ resiliosync_webui_port }}:8888"
       DATA_FOLDER: "{{ resiliosync_folder }}"
       PGID: "{{ resiliosync_group_id }}"
       PUID: "{{ resiliosync_user_id }}"
