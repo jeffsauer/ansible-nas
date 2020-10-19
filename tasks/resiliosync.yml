@@ -6,7 +6,7 @@
   with_items:
     - "{{ resiliosync_config_directory }}"
 
-- name: Homebridge Docker Container
+- name: ResilioSync Docker Container
   docker_container:
     name: resiliosync
     image: resilio/sync
