@@ -29,6 +29,7 @@ pihole_enabled: true
 resiliosync_enabled: true
 #wireguard 51820
 wireguard_enabled: true
+youtubedlmaterial_enabled: true
 
 # Downloading
 #transmission port 9092
