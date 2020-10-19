@@ -11,6 +11,9 @@
 
 sudo zpool create -o ashift=12 tank raidz2 vdb vdc vdd vde
 
+# Consider adding a SSD based cache drive to the pool... 128GB would be more than enough (too big consumes more RAM)
+# zpool add tank cache </dev/ssd_drive>
+
 zpool list
 zpool status tank
 
