@@ -251,6 +251,10 @@
   - import_tasks: tasks/resiliosync.yml
     when: (resiliosync_enabled | default(False))
     tags: resiliosync
+    
+  - import_tasks: tasks/wireguard.yml
+    when: (wireguard_enabled | default(False))
+    tags: wireguard
 
   - import_tasks: tasks/virtual_desktop.yml
     when: (virtual_desktop_enabled | default(False))
