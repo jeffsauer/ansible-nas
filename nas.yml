@@ -248,6 +248,10 @@
     when: (pihole_enabled | default(False))
     tags: pihole
 
+  - import_tasks: tasks/resiliosync.yml
+    when: (resiliosync_enabled | default(False))
+    tags: resiliosync
+
   - import_tasks: tasks/virtual_desktop.yml
     when: (virtual_desktop_enabled | default(False))
     tags: virtual_desktop
