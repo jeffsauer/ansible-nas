@@ -225,5 +225,6 @@ onDemand = false # create certificate when container is created
           "ubooquity.{{ ansible_nas_domain }}",
           "utorrent.{{ ansible_nas_domain }}",
           "wallabag.{{ ansible_nas_domain }}",
+          "wireguard.{{ ansible_nas_domain }}",
           "youtubedlmaterial.{{ ansible_nas_domain }}",
           "znc.{{ ansible_nas_domain }}"]
