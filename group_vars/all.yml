@@ -477,7 +477,7 @@ pihole_webui_port: "11080"
 ### ResilioSync
 ###
 resiliosync_available_externally: "false"
-resiliosync_config_directory: "{{ docker_home }}/pihole/config"
+resiliosync_config_directory: "{{ docker_home }}/resiliosync/config"
 resiliosync_user_id: "0"
 resiliosync_group_id: "0"
 resiliosync_folder: "{{ downloads_root }}/complete"
