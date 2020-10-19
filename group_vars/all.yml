@@ -64,6 +64,7 @@ virtual_desktop_enabled: false
 krusader_enabled: false
 pihole_enabled: false
 resiliosync_enabled: false
+wireguard_enabled: false
 
 # Backup & Restore
 duplicati_enabled: false
@@ -482,6 +483,14 @@ resiliosync_user_id: "0"
 resiliosync_group_id: "0"
 resiliosync_folder: "{{ downloads_root }}/complete"
 resiliosync_webui_port: "8888"
+
+###
+### Wireguard
+###
+wireguard_available_externally: "false"
+wireguard_config_directory: "{{ docker_home }}/resiliosync/config"
+wireguard_user_id: "0"
+wireguard_group_id: "0"
 
 ###
 ### Emby
