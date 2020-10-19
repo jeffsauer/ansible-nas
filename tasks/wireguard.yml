@@ -1,0 +1,29 @@
+---
+- name: Create Wireguard Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ wireguard_config_directory }}"
+
+- name: Wireguard Docker Container
+  docker_container:
+    name: wireguard
+    image: linuxserver/wireguard
+    pull: true
+    volumes:
+      - "{{ wireguard_config_directory }}:/wireguard"
+    network_mode: host
+    ports:
+      - 51820:51820/udp
+    env:
+      TZ: "{{ ansible_nas_timezone }}"
+      PGID: "{{ wireguard_group_id }}"
+      PUID: "{{ wireguard_user_id }}"
+    restart_policy: unless-stopped
+    memory: 1g
+    labels:
+      traefik.backend: "wireguard"
+      traefik.frontend.rule: "Host:wireguard.{{ ansible_nas_domain }}"
+      traefik.enable: "{{ wireguard_available_externally }}"
+      traefik.port: "51820"
