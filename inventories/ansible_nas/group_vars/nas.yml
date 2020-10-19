@@ -27,6 +27,8 @@ timemachine_enabled: true
 pihole_enabled: true
 #resiliosync 8888
 resiliosync_enabled: true
+#wireguard 51820
+wireguard_enabled: true
 
 # Downloading
 #transmission port 9092
