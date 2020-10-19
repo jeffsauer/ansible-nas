@@ -29,7 +29,6 @@ pihole_enabled: true
 resiliosync_enabled: true
 #wireguard 51820
 wireguard_enabled: true
-youtubedlmaterial_enabled: true
 
 # Downloading
 #transmission port 9092
@@ -44,6 +43,10 @@ plex_enabled: true
 sonarr_enabled: true
 #radarr port 7878
 radarr_enabled: true
+#jackett 9117
+jackett_enabled: true
+#youtubedl
+youtubedlmaterial_enabled: true
 
 # Home automation
 #homebridge port 8087
