@@ -16,13 +16,13 @@ sudo systemctl enable ssh
 
 cd /home/admin
 
-git clone https://github.com/davestephens/ansible-nas.git && cd ansible-nas
+# git clone https://github.com/davestephens/ansible-nas.git && cd ansible-nas
 
-git clone https://github.com/jeffsauer/ansible-nas.git
+# git clone https://github.com/jeffsauer/ansible-nas.git
 
-ansible-galaxy install -r requirements.yml
+# ansible-galaxy install -r requirements.yml
 
-ansible-playbook -i inventories/ansible-nas/inventory nas.yml -b -K
+# ansible-playbook -i inventories/ansible-nas/inventory nas.yml -b -K
 
 # fix up zfs pool tank permissions
 sudo chown -R ansible-nas.ansible-nas *
