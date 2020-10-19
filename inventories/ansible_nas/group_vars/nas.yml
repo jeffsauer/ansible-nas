@@ -25,6 +25,8 @@ watchtower_enabled: true
 timemachine_enabled: true
 #pihole 11080
 pihole_enabled: true
+#resiliosync 8888
+resiliosync_enabled: true
 
 # Downloading
 #transmission port 9092
